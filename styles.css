@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+p {
+    font-size: 72px;
+}
+
+.stopwatch {
+    margin-bottom: 20px;
+}
+
+.button {
+    margin-top: -10px;
+}
+
+button {
+    margin: -5 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+}
