@@ -6,12 +6,15 @@
     flex-direction: column;
 }
 
-p {
-    font-size: 72px;
-}
-
 .stopwatch {
     margin-bottom: 20px;
+    text-align: center;
+}
+
+.stopwatch p {
+    font-size: 96px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .button {
@@ -19,7 +22,7 @@ p {
 }
 
 button {
-    margin: -5 5px;
+    margin: 5px;
     padding: 10px 20px;
     font-size: 18px;
 }
