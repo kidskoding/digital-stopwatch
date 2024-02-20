@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             currentMilliseconds = 0;
             currentSeconds = 0;
             currentMinutes = 0;
-            lap = 0;
+            lap = 1;
             updateDisplay();
             lapContainer.innerHTML = '';
         }
