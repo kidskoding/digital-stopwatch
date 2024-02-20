@@ -9,8 +9,8 @@ let lap = 1;
 document.addEventListener('DOMContentLoaded', function() {
     const startStopButton = document.getElementById('startStopButton');
     const lapButton = document.getElementById('lapButton');
-    var display = document.getElementById('display');
-    var lapContainer = document.getElementsByClassName('lapContainer')[0];
+    const display = document.getElementById('display');
+    const lapContainer = document.getElementsByClassName('lapContainer')[0];
 
     startStopButton.addEventListener('click', function() {
         if(ticking) {
@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     lapButton.addEventListener('click', function() {
         if(ticking) {
-            var lapElement = document.createElement('p');
-            var lapText = document.createTextNode('Lap ' + lap + ': ' + display.innerText);
+            const lapElement = document.createElement('p');
+            const lapText = document.createTextNode('Lap ' + lap + ': ' + display.innerText);
             lapElement.appendChild(lapText);
             lapContainer.appendChild(lapElement);
             lap += 1;
