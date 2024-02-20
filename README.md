@@ -6,8 +6,8 @@ A simple digital stopwatch built using Vanilla JavaScript, HTML, and CSS
 
 <strong>Features - Start, Lap, Reset, and Stop</strong>
 <ol>
-  <li>Start - Starts a stopwatch instance that infinitely counts minutes</li>
-  <li>Lap - Saves a snapshot of the current display, showing the milliseconds, seconds, and minutes of the time</li>
-  <li>Stop - Pauses and Resumes the stopwatch when necessary</li>
-  <li>Reset - Resets the stopwatch back to 00:00:00, when necessary</li>
+  <li><strong>Start</strong> - Starts a stopwatch instance that infinitely counts minutes</li>
+  <li><strong>Lap</strong> - Saves a snapshot of the current display, showing the milliseconds, seconds, and minutes of the time</li>
+  <li><strong>Stop</strong> - Pauses and Resumes the stopwatch when necessary</li>
+  <li><strong>Reset</strong> - Resets the stopwatch back to 00:00:00, when necessary</li>
 </ol>
