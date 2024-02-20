@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             interval = setInterval(updateTime, 10);
             startStopButton.innerText = 'Stop';
         }
-        ticking = !ticking;
+        ticking = !ticking
     });
 });
 
