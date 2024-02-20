@@ -1,64 +1,42 @@
+let interval;
+let ticking = false;
+
+let currentMilliseconds = 0;
+let currentSeconds = 0;
+let currentMinutes = 0;
+
 document.addEventListener('DOMContentLoaded', function() {
-    const startButton = document.getElementById('startButton');
-    const stopwatchDisplay = document.querySelector('.stopwatch p strong');
-
-    let currentMilliseconds = 0;
-    let currentSeconds = 0;
-    let currentMinutes = 0;
-
-    let ticking = false;
-
-    let intervalTimer;
-
-    startButton.addEventListener('click', startStopwatch);
-    
-    function startStopwatch() {
-        if(!ticking) {
-            intervalTimer = setInterval(runMilliseconds, 10);
-
-            const runMilliseconds = () => {
-                currentMilliseconds++;
-                if(currentMilliseconds === 100) {
-                    currentMilliseconds = 0;
-                    runSeconds();
-                }
-                updateDisplay();
-            }
-    
-            const runSeconds = () => {
-                currentSeconds++;
-                if(currentSeconds === 60) {
-                    currentSeconds = 0;
-                    runMinutes();
-                }
-                updateDisplay();
-            }
-    
-            const runMinutes = () => {
-                currentMinutes++;
-            }
-    
-            const updateDisplay = () => {
-                const formattedTime = `${pad(currentMinutes)}:${pad(currentSeconds)}:${pad(currentMilliseconds)}`;
-                stopwatchDisplay.textContent = formattedTime;
-            }
-            startButton.addEventListener('click', stopStopwatch);
-
-            ticking = true;
-            startButton.textContent = 'Stop';
-            startButton.addEventListener('click', stopStopwatch);
+    const startStopButton = document.getElementById('startStopButton');
+    startStopButton.addEventListener('click', function() {
+        if(ticking) {
+            clearInterval(interval);
+            startStopButton.innerText = 'Start';
         } else {
-            stopStopwatch();
+            interval = setInterval(updateTime, 10);
+            startStopButton.innerText = 'Stop';
+        }
+        ticking = !ticking;
+    });
+});
+
+function updateTime() {
+    currentMilliseconds += 10;
+    if(currentMilliseconds === 1000) {
+        currentMilliseconds = 0;
+        currentSeconds += 1;
+        if(currentSeconds === 60) {
+            currentSeconds = 0;
+            currentMinutes++;
         }
     }
+    updateDisplay();
+}   
 
-    function stopStopwatch() {
-        clearInterval(intervalTimer);
-        ticking = false;
-        startButton.textContent = "Start";
-    }
+function updateDisplay() {
+    const display = document.getElementById('display');
+    display.innerText = `${padNumber(currentMinutes)}:${padNumber(currentSeconds)}:${padNumber(currentMilliseconds / 10)}`;
+}
 
-    function pad(value) {
-        return value < 10 ? "0" + value : value;
-    }
-});
+function padNumber(number) {
+    return number.toString().padStart(2, '0');
+}
