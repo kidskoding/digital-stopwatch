@@ -7,14 +7,20 @@
 }
 
 .stopwatch {
-    margin-bottom: 20px;
     text-align: center;
 }
-
 .stopwatch p {
     font-size: 96px;
     font-weight: bold;
     margin: 0;
+}
+.stopwatch p lap {
+    font-size: 18px;
+    margin: 0;
+}
+
+.lapContainer {
+    margin-top: 10px;
 }
 
 .button {

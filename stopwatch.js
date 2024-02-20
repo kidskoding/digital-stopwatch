@@ -9,6 +9,8 @@ let lap = 1;
 document.addEventListener('DOMContentLoaded', function() {
     const startStopButton = document.getElementById('startStopButton');
     const lapButton = document.getElementById('lapButton');
+    var display = document.getElementById('display');
+    var lapContainer = document.getElementsByClassName('lapContainer')[0];
 
     startStopButton.addEventListener('click', function() {
         if(ticking) {
@@ -20,17 +22,23 @@ document.addEventListener('DOMContentLoaded', function() {
             startStopButton.innerText = 'Stop';
             lapButton.innerText = 'Lap';
         }
-        ticking = !ticking
+        ticking = !ticking;
     });
 
     lapButton.addEventListener('click', function() {
         if(ticking) {
-
+            var lapElement = document.createElement('p');
+            var lapText = document.createTextNode('Lap ' + lap + ': ' + display.innerText);
+            lapElement.appendChild(lapText);
+            lapContainer.appendChild(lapElement);
+            lap += 1;
         } else {
             currentMilliseconds = 0;
             currentSeconds = 0;
             currentMinutes = 0;
+            lap = 0;
             updateDisplay();
+            lapContainer.innerHTML = '';
         }
     });
 });
@@ -52,7 +60,6 @@ function updateDisplay() {
     const display = document.getElementById('display');
     display.innerText = `${padNumber(currentMinutes)}:${padNumber(currentSeconds)}:${padNumber(currentMilliseconds / 10)}`;
 }
-
 function padNumber(number) {
     return number.toString().padStart(2, '0');
 }
