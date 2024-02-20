@@ -54,7 +54,7 @@ function updateTime() {
         }
     }
     updateDisplay();
-}   
+}
 
 function updateDisplay() {
     const display = document.getElementById('display');
